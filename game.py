@@ -14,11 +14,10 @@ class Game:
                      owner = 0,
         )
         return city
-    def make_map(_):
-        wm = dict()
-        wm['w'] = 640
-        wm['h'] = 480
-        wm['players'] = [
+    def __init__(_):
+        _.wm = dict()
+        _.wm['size'] = (640, 480)
+        _.wm['players'] = [
             _.make_player(color='gray', ),
             _.make_player(color='yellow', human = 1),
             _.make_player(color='maroon'),
@@ -26,9 +25,8 @@ class Game:
             _.make_player(color='yellow'),
             _.make_player(color='lime'),
         ][:_.num_players]
-        wm['cities']  = [ _.make_city() for r in range(_.max_cities) ]
-        wm['cities'][0]['owner'] = 1
-        wm['cities'][1]['owner'] = 2
-        return wm
-    def __init__(_):
-        _.wm = _.make_map()
+        _.wm['cities']  = [ _.make_city()
+                            for r in range(_.max_cities) ]
+        _.wm['cities'][0]['owner'] = 1
+        _.wm['cities'][1]['owner'] = 2
+
